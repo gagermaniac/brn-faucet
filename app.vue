@@ -44,7 +44,7 @@ onMounted(() => {
         >
           <div class="mb-3">
             <h4 class="text-xl font-bold mb-1">Get Test Tokens</h4>
-            <small>Get 0.001 BRN tokens</small>
+            <small>Get 0.1 BRN tokens</small>
           </div>
           <form v-on:submit.prevent="claim" class="flex flex-col">
             <input
@@ -60,7 +60,7 @@ onMounted(() => {
               type="submit"
               class="bg-orange-500 p-2 mt-3 rounded-md font-light"
             >
-              Send 0.001 BRN tokens
+              Send 0.1 BRN tokens
             </button>
           </form>
         </div>

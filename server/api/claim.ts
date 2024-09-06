@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     // Define the transaction
     const tx = {
         to: body.recipientAddress,
-        value: ethers.parseEther('0.001') // Convert the amount to Wei
+        value: ethers.parseEther('0.1') // Convert the amount to Wei
     };
 
     // Send the transaction
