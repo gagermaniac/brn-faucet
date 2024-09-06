@@ -38,9 +38,7 @@ onMounted(() => {
     >
       <h2 class="text-white font-bold text-3xl">BRN Faucet</h2>
       <p class="text-white">Faucet balance : {{ balance }}</p>
-      <div
-        class="container p-6 flex flex-col gap-6 align-center justify-center"
-      >
+      <div class="container p-6 flex flex-col gap-6 align-center items-center">
         <div
           class="mt-3 max-w-[500px] text-white flex flex-col bg-slate-800 border rounded-md min-w-[50vw] border-slate-600 p-6"
         >
