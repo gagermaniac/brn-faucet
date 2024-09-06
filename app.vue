@@ -6,6 +6,7 @@ const balance = ref("0");
 
 const address = ref("");
 const result = ref<any>({});
+const loading = ref(false);
 
 const getBalance = async () => {
   const response = await useFetch("/api/balance");
@@ -14,10 +15,12 @@ const getBalance = async () => {
 };
 
 const claim = async () => {
+  loading.value = true;
   const response = await useFetch("/api/claim", {
     method: "POST",
     body: JSON.stringify({ recipientAddress: address.value }),
   });
+  loading.value = false;
   result.value = response.data.value;
 };
 
@@ -58,7 +61,9 @@ onMounted(() => {
             >
             <button
               type="submit"
+              :disabled="loading"
               class="bg-orange-500 p-2 mt-3 rounded-md font-light"
+              :class="{ 'opacity-50': loading }"
             >
               Send 0.1 BRN tokens
             </button>
