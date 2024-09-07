@@ -1,6 +1,4 @@
 import * as ethers from 'ethers';
-import { ClaimTx } from '~/db/claim-tx';
-import { AppDataSource } from '~/db/datasource';
 import { claimTx, db } from '../schema';
 import { desc } from 'drizzle-orm';
 
@@ -18,11 +16,8 @@ export default defineEventHandler(async (event) => {
     // Convert the balance from Wei to Ether
     const etherBalance = ethers.formatEther(balance);
 
-    const txHistories = await db.select().from(claimTx).limit(100).orderBy(desc(claimTx.created_at)).execute();
-
     return {
         address: address,
         balance: etherBalance,
-        txHistories,
     };
 })
