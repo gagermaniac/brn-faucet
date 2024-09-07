@@ -20,6 +20,8 @@ const claim = async () => {
     method: "POST",
     body: JSON.stringify({ recipientAddress: address.value }),
   });
+  await getBalance();
+
   loading.value = false;
   result.value = response.data.value;
 };
@@ -83,8 +85,8 @@ onMounted(() => {
           </p>
         </div>
         <div
-          v-if="result.status && result.status !== 1"
-          class="bg-slate-600 text-white border border-red-700 rounded p-2"
+          v-if="result.status != null && result.status !== 1"
+          class="bg-slate-600 text-white border border-red-700 rounded p-2 max-w-[500px]"
         >
           <h2 class="font-black text-red-500">Error</h2>
           <p>Something went wrong</p>
